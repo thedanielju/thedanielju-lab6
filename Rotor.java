@@ -41,8 +41,14 @@ public class Rotor {
         return index;
     }
 
+    //search for char at index
+    //return char 
+    //if index is invalid, return exception
     public char charAt(int idx){
-        //TODO
+        if (idx < 0 || idx >= rotorValues.length()) {
+            throw new IndexOutOfBoundsException("this is invalid: " + idx);
+        }
+        return rotorValues.charAt(idx);
     }
 }
     
