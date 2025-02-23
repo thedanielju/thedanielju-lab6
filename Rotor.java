@@ -33,9 +33,12 @@ public class Rotor {
         }
     }
     
-
+    //search for c in rotorValues
+    //return index in the array
+    //if not found, return -1
     public int indexOf(char c){
-        //TODO
+        int index = rotorValues.indexOf(c);
+        return index;
     }
 
     public char charAt(int idx){
