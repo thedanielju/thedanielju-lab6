@@ -29,12 +29,12 @@ public class Enigma{
         String result = "";
         for (int i = 0; i < message.length(); i++) {
 
-            char char1 = message.charAt(i);
-            int index = rotors[0].indexOf(char1);
-            char char2 = rotors[1].charAt(index);
-            int index1 = rotors[2].indexOf(char2);
-            char char3 = rotors[2].charAt(index1);
-            result += char3;
+            char ogChar = message.charAt(i); //get character 1 from message
+            int innerIndex = rotors[0].indexOf(ogChar); // find corresponding position in inner rotor (0)
+            char middleChar = rotors[1].charAt(innerIndex); // get matching char from middle rotor (1)
+            int middleIndex = rotors[1].indexOf(middleChar); // find corresponding position in middle rotor (1)
+            char outerChar = rotors[2].charAt(middleIndex); // get matching char from outside rotor (2)
+            result += outerChar;
 
             if (rotors[0].rotate()) {
                 if (rotors[1].rotate()) {
