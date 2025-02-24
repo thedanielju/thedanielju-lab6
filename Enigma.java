@@ -28,6 +28,9 @@ public class Enigma{
             int middleIndex = rotors[1].indexOf(middleChar); //find corresponding position in middle rotor (1)
             char ogChar = rotors[0].charAt(middleIndex); //get matching inner char from middle index 
             result += ogChar;
+
+            rotate();
+            
         }
         return result;
     }
