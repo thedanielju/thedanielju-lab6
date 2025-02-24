@@ -25,8 +25,17 @@ public class Enigma{
 
 
     
-    public String encrypt(String message){
-        //TODO
+    public String encrypt(String message){ //extremely rough draft
+        String result = "";
+        for (int i = 0; i < message.length(); i++) {
+            char char1 = rotors[0].charAt(i);
+            int index = rotors[0].indexOf(char1);
+            char char2 = rotors[1].charAt(index);
+            int index1 = rotors[3].indexOf(char2);
+            result += rotors[3].charAt(index1);
+            rotors[0].rotate();
+        }
+        return result;
     }
 
     
