@@ -20,7 +20,16 @@ public class Enigma{
 
 
     public String decrypt(String message){        
-        //TODO
+        String result = "";
+        for (int i = 0; i < message.length(); i++) {
+            char outerChar = message.charAt(i); //get outer character from message
+            int outerIndex = rotors[2].indexOf(outerChar); //find corresponding position in outer rotor (2)
+            char middleChar = rotors[1].charAt(outerIndex); //get matching middle char from outer index
+            int middleIndex = rotors[1].indexOf(middleChar); //find corresponding position in middle rotor (1)
+            char ogChar = rotors[0].charAt(middleIndex); //get matching inner char from middle index 
+            result += ogChar;
+        }
+        return result;
     }
 
 
