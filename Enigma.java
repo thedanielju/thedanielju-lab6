@@ -36,11 +36,7 @@ public class Enigma{
             char outerChar = rotors[2].charAt(middleIndex); // get matching char from outside rotor (2)
             result += outerChar;
 
-            if (rotors[0].rotate()) {
-                if (rotors[1].rotate()) {
-                    rotors[2].rotate();
-                }
-            }
+            rotate();
             
         }
         return result;
