@@ -25,15 +25,23 @@ public class Enigma{
 
 
     
-    public String encrypt(String message){ //extremely rough draft
+    public String encrypt(String message){ //rough draft 2
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            char char1 = rotors[0].charAt(i);
+
+            char char1 = message.charAt(i);
             int index = rotors[0].indexOf(char1);
             char char2 = rotors[1].charAt(index);
-            int index1 = rotors[3].indexOf(char2);
-            result += rotors[3].charAt(index1);
-            rotors[0].rotate();
+            int index1 = rotors[2].indexOf(char2);
+            char char3 = rotors[2].charAt(index1);
+            result += char3;
+
+            if (rotors[0].rotate()) {
+                if (rotors[1].rotate()) {
+                    rotors[2].rotate();
+                }
+            }
+            
         }
         return result;
     }
