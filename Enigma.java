@@ -22,31 +22,31 @@ public class Enigma{
     public String decrypt(String message){        
         String result = "";
         for (int i = 0; i < message.length(); i++) {
-            char outerChar = message.charAt(i); //get outer character from message
-            int outerIndex = rotors[2].indexOf(outerChar); //find corresponding position in outer rotor (2)
-            char middleChar = rotors[1].charAt(outerIndex); //get matching middle char from outer index
-            int middleIndex = rotors[1].indexOf(middleChar); //find corresponding position in middle rotor (1)
+            char outerChar2 = message.charAt(i); //get outer character from message
+            int outerIndex = rotors[2].indexOf(outerChar2); //find corresponding position in outer rotor (2)
+            char middleChar1 = rotors[1].charAt(outerIndex); //get matching first middle char from outer index
+            int middleIndex = rotors[2].indexOf(middleChar1); //find corresponding position of outer char from middle char
             char ogChar = rotors[0].charAt(middleIndex); //get matching inner char from middle index 
             result += ogChar;
 
             rotate();
-            
+
         }
         return result;
     }
 
 
     
-    public String encrypt(String message){ //rough draft 2
+    public String encrypt(String message){ 
         String result = "";
         for (int i = 0; i < message.length(); i++) {
 
             char ogChar = message.charAt(i); //get character 1 from message
             int innerIndex = rotors[0].indexOf(ogChar); // find corresponding position in inner rotor (0)
-            char middleChar = rotors[1].charAt(innerIndex); // get matching char from middle rotor (1)
-            int middleIndex = rotors[1].indexOf(middleChar); // find corresponding position in middle rotor (1)
-            char outerChar = rotors[2].charAt(middleIndex); // get matching char from outside rotor (2)
-            result += outerChar;
+            char outerChar1 = rotors[2].charAt(innerIndex); // get matching outer char for first pass 
+            int middleIndex = rotors[1].indexOf(outerChar1); // find corresponding position of outer char in middle rotor (1)
+            char outerChar2 = rotors[2].charAt(middleIndex); // get matching char from outside rotor (2)
+            result += outerChar2;
 
             rotate();
             
